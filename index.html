@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOK'Os LANCHE </title>
+    <link rel="stylesheet" href="estilos/principal.css">
+    <link rel="stylesheet" href="estilos/Config-tamnhos.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="scirpt.js" defer></script>
+</head>
+<body onresize="Size()">
+    <header>
+        <div class="fan-pdr">
+            <img src="imagem/Nome-pizzaria.png" alt=""> 
+            <div class="menu" id="menu">
+                <div id="icon">
+                <span onclick="Infmenu()" class="material-symbols-outlined">
+                    menu
+                </span>
+                </div>
+   
+       <div class="fan-menu" id="fan-menu">
+            <ul>
+                <li><a href="">Cardapio</a></li>
+                <li><a href="">Contato</a></li>
+                <li><a href="">Endereço</a></li>
+                <li><a href="">Quem Somos</a></li>
+            </ul>
+     </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div id="res"></div>
+    <div id="carrinho">
+        <span onclick="Carrinho()" class="material-symbols-outlined">
+            shopping_cart
+            </span>
+        <div id="quantidade">
+            0
+        </div>
+        <div  id="prodCarrinho">    
+            <div id="addProduto">
+            <p>Seu carrinho esta vazio</p>
+            </div>
+        <div class="FinalizarCompra" id="FinalizarCompra">
+            <p>Sub-Total</p>
+            <p>0.00</p><br>
+       
+        </div>    
+            <a href="http://youtube.com.br" target="_blank" rel="noopener noreferrer">Finalizar Compra</a>
+        </div> 
+    </div>
+    <section>
+        <h1>Serviço de entrega de comida.</h1>
+        <p>Veja o cardapio completo &#8681;</p>
+        <p>Só clicar na foto</p>
+        <div class="fanprodutos" >
+        
+        </div>
+        </div> 
+    
+        </section>
+    </main>
+</body>
+</html>

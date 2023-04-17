@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Finalização do pedido </title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        body{
+            background-image: linear-gradient(to right, #d3b70036,#a18f1e6b);
+        }
+        form{
+            display: flex;
+            justify-content: center;
+        }
+        fieldset{
+            width: 80vw;
+        }
+        .Descricao{
+            display: grid;
+            width: 80%;
+            margin: auto;
+        }
+        .Input{
+            background: none;
+            border: 0;
+            border-bottom: 2px solid #AEE00B;
+            margin: 10px 0 ;
+        }
+        .Input:focus{
+            background-color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Carrinho de compra</h1>
+            <div>
+                <h3>Descrição do produto</h3>
+                <p></p>
+                <h2></h2>
+            </div>
+        </section>
+        <section class="menuDesc">
+        <form action="endeço" method="post" autocomplete="on">
+            <fieldset>
+            <legend>Descrição para envio</legend>
+            <div class="Descricao">
+            <label for="none">Nome Completo:</label>
+            <input class="Input" type="text" name="nome" id="nome">
+            <label for="endeco">Endereço:</label>
+            <input class="Input" type="text" name="endeco" id="endeco">
+            <label for="bairo">Bairo:</label>
+            <input  class="Input" type="text" name="bairo" id="bairo">
+        </div>
+        </fieldset>
+        </form>
+    </section>
+    </main>
+</body>
+</html>
