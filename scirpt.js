@@ -1,6 +1,7 @@
 var list = document.getElementById('fan-menu')
 
 var icon = document.getElementById('icon')
+// Menu interativo "block" "none"
 function Infmenu(){
 if(list.style.display == 'block'){
     list.style.display = 'none'
@@ -45,6 +46,7 @@ function INFproduto2(){
 
     }
 }
+
 function INFproduto3(){
     if(infor3.style.display == 'block'){
         infor3.style.display= 'none'
@@ -54,6 +56,9 @@ function INFproduto3(){
 
     }
 }
+
+
+
 const addToCartButtons = document.querySelectorAll('#Comprar');
 const cartCounts = document.querySelectorAll('#quantidade');
 
@@ -65,6 +70,9 @@ for (let i = 0; i < addToCartButtons.length; i++) {
     cartCounts[i].textContent = itemCount;
   });
 }
+
+
+// ce a resolução for 768px vai redirecionar pra outra pagina
 function Carrinho(){
     if(window.innerWidth <= 768){
         document.location.href ='carrinhoCell.php'
@@ -74,6 +82,7 @@ function Carrinho(){
         prodCarrinho.style.display = 'block'
     }
 }
+// Informação dos produtos da loja....
 const itens=[
     {
         id:0,
@@ -86,6 +95,7 @@ const itens=[
         descricao3:'Catupiry',
         descricao4:'muçarela',
         preco:'95.00',
+        Pcar:'Quantidade1',
         quantidade:0
     },
     {
@@ -99,6 +109,7 @@ const itens=[
         descricao3:'Catupiry',
         descricao4:'muçarela',
         preco:'80.00',
+        Pcar:'Quantidade2',
         quantidade:0
     },
     {
@@ -112,6 +123,7 @@ const itens=[
         descricao3:'Catupiry',
         descricao4:'muçarela',
         preco:'75.00',
+        Pcar:'Quantidade3',
         quantidade:0
     },
     {
@@ -125,6 +137,7 @@ const itens=[
         descricao3:'Catupiry',
         descricao4:'muçarela',
         preco:'65.00',
+        Pcar:'Quantidade4',
         quantidade:0
     },
 ]
@@ -142,8 +155,8 @@ incializarLoja = ()=>{
     <h4>`+val.descricao2+`</h4>
     <h4>`+val.descricao3+`</h4>
     <h4>`+val.descricao4+`</h4>
-    <p>`+valor+`</p>
-    <a class='btn' onclick="calcularTotal()" key="`+val.id+`" href="#" >Compar</a>
+    <p class="preço">`+valor+`</p>
+    <a class="btn" id="`+val.Pcar+`" onclick="calcularTotal()" key="`+val.id+`" href="#" >Compar</a>
    </div>
    </div>
     
@@ -151,7 +164,7 @@ incializarLoja = ()=>{
     }
     incializarLoja();
 
-
+//Atualização dos produtos do carrinho
     atualuziarCArrinho=()=>{
         var containerCarrinho = document.getElementById('addProduto') 
          containerCarrinho.innerHTML='';
@@ -160,7 +173,7 @@ incializarLoja = ()=>{
                 containerCarrinho.innerHTML+=`
                     <p>`+val.nome+`<br><hr>
                     `+val.descricao1+`<br>`+val.descricao2+`<br>`+val.descricao3+`<br>`+val.descricao4+`
-                   <h5>valor:`+val.preco+`</h5>|<h6>quantidade:`+val.quantidade+`<h6></p>
+                   <h5>valor:`+val.preco+`</h5><h6>quantidade:`+val.quantidade+`<h6></p>
                 `;}
         })
     }
@@ -175,30 +188,54 @@ incializarLoja = ()=>{
             return false;
         })
     }
-    function calcularTotal() {
-        // Seleciona todas as linhas da tabela
-        const linhas = document.querySelectorAll('h5');
-        const quantidade = document.querySelectorAll('h6')
-        linhas.innertext
-        console.log(linhas)
-        console.log(quantidade)
-        let total = 0;
-        
-        // Itera sobre cada linha da tabela, exceto a primeira (cabeçalho)
-        for (let i = 1; i < linhas.length; i++) {
-          const linha = linhas[i];
-          
-          // Obtém o preço e a quantidade do produto
-          const preco = parseFloat(linha.children[1].textContent);
-          const quantidade = parseInt(quantidade.children[2].children[0].value);
-          
-          // Calcula o subtotal para este produto e adiciona ao total
-          const subtotal = preco * quantidade;
-          total += subtotal;
-        }
-        console.log(total)
-        // Exibe o total na página
-        const totalElement = document.createElement('p');
-        totalElement.textContent = `Total da compra: R$${total.toFixed(2)}`;
-        document.body.appendChild(totalElement);
-      }
+
+
+    //Atualização da quantidade de produto que esta no carrinho
+    var btn = document.getElementById('Quantidade1')
+
+    var contaiener = document.getElementById('quantidade')
+    var valorContador = 0
+    btn.addEventListener("click", function() {
+        valorContador++; 
+        contaiener.innerHTML="";
+        contaiener.innerHTML += `<p class="Paquantida1">`+valorContador+`</p>`; 
+
+      });
+
+      var btn = document.getElementById('Quantidade2')
+      btn.addEventListener("click", function() {
+        valorContador++; 
+        contaiener.innerHTML="";
+        contaiener.innerHTML += `<p class="Paquantida2">`+valorContador+`</p>`; 
+
+      });
+
+
+      var btn = document.getElementById('Quantidade3')
+      btn.addEventListener("click", function() {
+        valorContador++; 
+        contaiener.innerHTML="";
+        contaiener.innerHTML += `<p class="Paquantida3" >`+valorContador+`</p>`; 
+   
+      });
+      var btn = document.getElementById('Quantidade4')
+      btn.addEventListener("click", function() {
+        valorContador++; 
+        contaiener.innerHTML="";
+        contaiener.innerHTML += `<p class="Paquantida4" >`+valorContador+`</p>`; 
+       
+      });
+    
+AtualizarPreco=()=>{  
+     var conr= valorContador
+    var a = document.getElementById('FinalizarCompra')
+
+    console.log(conr)  
+    var valor = document.querySelector('.preço')
+    var valor = parseInt(valor.textContent);
+    var a= valor
+    var b= conr
+     var resultado = a * b
+    a.innerHTML+=`<p>`+resultado+`</p>`;
+}
+AtualizarPreco();
