@@ -96,6 +96,7 @@ const itens=[
         descricao4:'muçarela',
         preco:'95.00',
         Pcar:'Quantidade1',
+
         quantidade:0
     },
     {
@@ -110,6 +111,7 @@ const itens=[
         descricao4:'muçarela',
         preco:'80.00',
         Pcar:'Quantidade2',
+
         quantidade:0
     },
     {
@@ -124,6 +126,7 @@ const itens=[
         descricao4:'muçarela',
         preco:'75.00',
         Pcar:'Quantidade3',
+
         quantidade:0
     },
     {
@@ -155,7 +158,7 @@ incializarLoja = ()=>{
     <h4>`+val.descricao2+`</h4>
     <h4>`+val.descricao3+`</h4>
     <h4>`+val.descricao4+`</h4>
-    <p class="preço">`+valor+`</p>
+    <p class="`+val.Pcar+`">`+valor+`</p>
     <a class="btn" id="`+val.Pcar+`" onclick="calcularTotal()" key="`+val.id+`" href="#" >Compar</a>
    </div>
    </div>
@@ -193,20 +196,20 @@ incializarLoja = ()=>{
     //Atualização da quantidade de produto que esta no carrinho
     var btn = document.getElementById('Quantidade1')
 
-    var contaiener = document.getElementById('quantidade')
+    var contaieneQuantidade = document.getElementById('quantidade')
     var valorContador = 0
     btn.addEventListener("click", function() {
         valorContador++; 
-        contaiener.innerHTML="";
-        contaiener.innerHTML += `<p class="Paquantida1">`+valorContador+`</p>`; 
+        contaieneQuantidade.innerHTML="";
+        contaieneQuantidade.innerHTML += `<p class="Paquantida1">`+valorContador+`</p>`; 
 
       });
 
       var btn = document.getElementById('Quantidade2')
       btn.addEventListener("click", function() {
         valorContador++; 
-        contaiener.innerHTML="";
-        contaiener.innerHTML += `<p class="Paquantida2">`+valorContador+`</p>`; 
+        contaieneQuantidade.innerHTML="";
+        contaieneQuantidade.innerHTML += `<p class="Paquantida2">`+valorContador+`</p>`; 
 
       });
 
@@ -214,28 +217,67 @@ incializarLoja = ()=>{
       var btn = document.getElementById('Quantidade3')
       btn.addEventListener("click", function() {
         valorContador++; 
-        contaiener.innerHTML="";
-        contaiener.innerHTML += `<p class="Paquantida3" >`+valorContador+`</p>`; 
+        contaieneQuantidade.innerHTML="";
+        contaieneQuantidade.innerHTML += `<p class="Paquantida3" >`+valorContador+`</p>`; 
    
       });
       var btn = document.getElementById('Quantidade4')
       btn.addEventListener("click", function() {
         valorContador++; 
-        contaiener.innerHTML="";
-        contaiener.innerHTML += `<p class="Paquantida4" >`+valorContador+`</p>`; 
+        contaieneQuantidade.innerHTML="";
+        contaieneQuantidade.innerHTML += `<p class="Paquantida4" >`+valorContador+`</p>`; 
        
       });
     
 AtualizarPreco=()=>{  
-     var conr= valorContador
-    var a = document.getElementById('FinalizarCompra')
+    //var conr= valorContador
+    var containerSoma = document.getElementById('FinalizarCompra')
+    var btn = document.getElementById('Quantidade1')
+    var Fvalor = document.querySelector('.Quantidade1')
+    var valor = parseInt(Fvalor.textContent);
 
-    console.log(conr)  
-    var valor = document.querySelector('.preço')
-    var valor = parseInt(valor.textContent);
+    b=0
+    btn.addEventListener("click", function() {
     var a= valor
-    var b= conr
-     var resultado = a * b
-    a.innerHTML+=`<p>`+resultado+`</p>`;
+    b++;
+    var resultado = a * b
+    console.log(a)
+    console.log(b)
+    containerSoma.innerHTML="";
+    containerSoma.innerHTML+=`<p>`+resultado+`</p>`;
+    })
 }
 AtualizarPreco();
+AtualizarPreco=()=>{
+    var containerSoma = document.getElementById('FinalizarCompra')
+    var btn = document.getElementById('Quantidade2')
+    var Fvalor = document.querySelector('.Quantidade2')
+    var valor = parseInt(Fvalor.textContent);
+    b=0
+    btn.addEventListener("click", function() {
+    var a= valor
+    console.log(a)
+    b++;
+    var resultado = a * b
+    console.log(b)
+    containerSoma.innerHTML="";
+    containerSoma.innerHTML+=`<p>`+resultado+`</p>`;
+    })
+
+    
+}
+AtualizarPreco();
+
+/*var conteinerSoma = docuemnt.getElementById('FinalizarCompra')
+var btn = document.getElementById('quantidade3')
+var Fvalor = document.querySelector('.quantidade3')
+var valor = parseInt(Fvalor,textContent);
+console.log(valor)
+b=0
+btn.addEventListener("click",function(){
+    var a = valor 
+    b++;
+    var resultado = a * b
+    conteinerSoma="";
+    conteinerSoma+=`<p>`+resultado+`</p>`;
+})*/
