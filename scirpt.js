@@ -170,9 +170,10 @@ incializarLoja = ()=>{
 //Atualização dos produtos do carrinho
     atualuziarCArrinho=()=>{
         var containerCarrinho = document.getElementById('addProduto') 
-         containerCarrinho.innerHTML='';
-        itens.map((val)=>{
-            if(val.quantidade > 0){    
+       
+        itens.map((val)=>{ 
+            if(val.quantidade > 0){     
+                containerCarrinho.innerHTML='';
                 containerCarrinho.innerHTML+=`
                     <p>`+val.nome+`<br><hr>
                     `+val.descricao1+`<br>`+val.descricao2+`<br>`+val.descricao3+`<br>`+val.descricao4+`
