@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"  defer></script>
     <title>Carrinho - Finalização do pedido </title>
     <style>
         *{
@@ -14,6 +15,17 @@
         body{
             background-image: linear-gradient(to right, #d3b70036,#a18f1e6b);
         }
+      .DescricaoPro{
+        font-weight: bold;
+        font-size: 1.3em;
+        text-align: center;
+      }
+      #Descricao{  
+        margin: 10px 0 ;
+        margin: auto;
+        border: 1px solid black;
+        width: 50%;
+      }
         form{
             display: flex;
             justify-content: center;
@@ -21,7 +33,7 @@
         fieldset{
             width: 80vw;
         }
-        .Descricao{
+        .Formulario{
             display: grid;
             width: 80%;
             margin: auto;
@@ -35,31 +47,41 @@
         .Input:focus{
             background-color: white;
         }
-
+        .Pedido{
+            background-color: #e4ca216b;
+            margin: 10px 0;
+            padding: 5px;
+        }
 
     </style>
 </head>
 <body>
     <main>
-        <section>
+        <section> 
+             <div class="DescricaoPro">
             <h1>Carrinho de compra</h1>
-            <div>
+          
                 <h3>Descrição do produto</h3>
-                <p></p>
-                <h2></h2>
+                <div id="descricaoPro">
+                    Carrinho Vario
+                </div>
+                    <div id="total preço">
+
+                    </div>
             </div>
         </section>
         <section class="menuDesc">
-        <form action="endeço" method="post" autocomplete="on">
+        <form action="entrgar.php" method="post" autocomplete="on">
             <fieldset>
             <legend>Descrição para envio</legend>
-            <div class="Descricao">
+            <div class="Formulario">
             <label for="none">Nome Completo:</label>
-            <input class="Input" type="text" name="nome" id="nome">
+            <input class="Input" type="text" name="nome" id="nome" minlength="5" maxlength="30" autocomplete="name" required>
             <label for="endeco">Endereço:</label>
-            <input class="Input" type="text" name="endeco" id="endeco">
+            <input class="Input" type="text" name="endeco" id="endeco" required autocomplete="address-level1"> 
             <label for="bairo">Bairo:</label>
-            <input  class="Input" type="text" name="bairo" id="bairo">
+            <input  class="Input" type="text" name="bairo" id="bairo" required autocomplete="address-level2">
+            <input class="Pedido" type="submit" value="Pedir agora">
         </div>
         </fieldset>
         </form>

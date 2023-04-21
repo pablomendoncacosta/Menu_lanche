@@ -75,7 +75,7 @@ for (let i = 0; i < addToCartButtons.length; i++) {
 // ce a resolução for 768px vai redirecionar pra outra pagina
 function Carrinho(){
     if(window.innerWidth <= 768){
-        document.location.href ='carrinhoCell.php'
+        document.location.href ='carrinhoCell.html'
     }else if(prodCarrinho.style.display == 'block'){
         prodCarrinho.style.display = 'none'
     }else{
@@ -143,7 +143,7 @@ const itens=[
 ]
 incializarLoja = ()=>{
     var ConteinerProduto = document.querySelector('.fanprodutos')
-  
+
     itens.map((val)=>{ 
         var valor = val.preco.toLocaleString('pt-BR', { style: 'currency', currency:'BRL'}); 
      ConteinerProduto.innerHTML+=`
@@ -159,24 +159,25 @@ incializarLoja = ()=>{
     <a class="btn" id="`+val.Pcar+`" onclick="calcularTotal()" key="`+val.id+`" href="#" >Compar</a>
    </div>
    </div>
-    
       `;})
     }
     incializarLoja();
 
 //Atualização dos produtos do carrinho
     atualuziarCArrinho=()=>{
-        var containerCarrinho = document.getElementById('addProduto') 
+        var containerCarrinho = document.getElementById('addProduto')
        containerCarrinho.innerHTML='';
         itens.map((val)=>{ 
             
             if(val.quantidade > 0){     
                 
                 containerCarrinho.innerHTML+=`
-                    <p>`+val.nome+`<br><hr>
+                    <p>`+val.nome+`<br>
                     `+val.descricao1+`<br>`+val.descricao2+`<br>`+val.descricao3+`<br>`+val.descricao4+`
-                   <h5>valor:`+val.preco+`</h5><h6>quantidade:`+val.quantidade+`<h6></p>
-                `;}
+                   <h5>valor:`+val.preco+`</h5><h6>quantidade:`+val.quantidade+`<h6><hr></p>
+                `;
+  
+}
         })
     }
     atualuziarCArrinho();
@@ -250,7 +251,6 @@ incializarLoja = ()=>{
     var Fvalor = document.querySelector('.Quantidade2')
     var valor = parseInt(Fvalor.textContent);
     var a= valor
-    console.log(res)
     btn.addEventListener("click", function() {  
 
     b++;
@@ -261,18 +261,6 @@ incializarLoja = ()=>{
     }) ;
 
 
-
-
-/*var conteinerSoma = docuemnt.getElementById('FinalizarCompra')
-var btn = document.getElementById('quantidade3')
-var Fvalor = document.querySelector('.quantidade3')
-var valor = parseInt(Fvalor,textContent);
-console.log(valor)
-b=0
-btn.addEventListener("click",function(){
-    var a = valor 
-    b++;
-    var resultado = a * b
-    conteinerSoma="";
-    conteinerSoma+=`<p>`+resultado+`</p>`;
-})*/
+function Finalizarpedido(){
+    window.location.href ="carrinhoCell.html"
+}
