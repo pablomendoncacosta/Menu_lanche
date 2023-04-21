@@ -82,8 +82,8 @@ main{
     font-size: 1.0em;
 }
 #prodCarrinho{
-    display: none;
     position: relative;
+    display: none;
     right: -15px;
     float: right;
     top: 4px;
@@ -100,6 +100,11 @@ main{
 }
 #prodCarrinho  p{
     color: black;
+}
+#prodCarrinho > a{
+    display: block;
+    font-weight: bold;
+    background-color: aquamarine;
 }
 .FinalizarCompra{
     display: flex;

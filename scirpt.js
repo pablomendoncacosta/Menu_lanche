@@ -96,7 +96,6 @@ const itens=[
         descricao4:'muçarela',
         preco:'95.00',
         Pcar:'Quantidade1',
-
         quantidade:0
     },
     {
@@ -111,7 +110,6 @@ const itens=[
         descricao4:'muçarela',
         preco:'80.00',
         Pcar:'Quantidade2',
-
         quantidade:0
     },
     {
@@ -126,7 +124,6 @@ const itens=[
         descricao4:'muçarela',
         preco:'75.00',
         Pcar:'Quantidade3',
-
         quantidade:0
     },
     {
@@ -170,10 +167,11 @@ incializarLoja = ()=>{
 //Atualização dos produtos do carrinho
     atualuziarCArrinho=()=>{
         var containerCarrinho = document.getElementById('addProduto') 
-       
+       containerCarrinho.innerHTML='';
         itens.map((val)=>{ 
+            
             if(val.quantidade > 0){     
-                containerCarrinho.innerHTML='';
+                
                 containerCarrinho.innerHTML+=`
                     <p>`+val.nome+`<br><hr>
                     `+val.descricao1+`<br>`+val.descricao2+`<br>`+val.descricao3+`<br>`+val.descricao4+`
@@ -202,7 +200,7 @@ incializarLoja = ()=>{
     btn.addEventListener("click", function() {
         valorContador++; 
         contaieneQuantidade.innerHTML="";
-        contaieneQuantidade.innerHTML += `<p class="Paquantida1">`+valorContador+`</p>`; 
+        contaieneQuantidade.innerHTML += `<p>`+valorContador+`</p>`; 
 
       });
 
@@ -210,7 +208,7 @@ incializarLoja = ()=>{
       btn.addEventListener("click", function() {
         valorContador++; 
         contaieneQuantidade.innerHTML="";
-        contaieneQuantidade.innerHTML += `<p class="Paquantida2">`+valorContador+`</p>`; 
+        contaieneQuantidade.innerHTML += `<p>`+valorContador+`</p>`; 
 
       });
 
@@ -219,55 +217,51 @@ incializarLoja = ()=>{
       btn.addEventListener("click", function() {
         valorContador++; 
         contaieneQuantidade.innerHTML="";
-        contaieneQuantidade.innerHTML += `<p class="Paquantida3" >`+valorContador+`</p>`; 
+        contaieneQuantidade.innerHTML += `<p>`+valorContador+`</p>`; 
    
       });
       var btn = document.getElementById('Quantidade4')
       btn.addEventListener("click", function() {
         valorContador++; 
         contaieneQuantidade.innerHTML="";
-        contaieneQuantidade.innerHTML += `<p class="Paquantida4" >`+valorContador+`</p>`; 
+        contaieneQuantidade.innerHTML += `<p>`+valorContador+`</p>`; 
        
       });
     
-AtualizarPreco=()=>{  
-    //var conr= valorContador
-    var containerSoma = document.getElementById('FinalizarCompra')
+
+    var b=0
+    var containerSoma = document.getElementById('FinalizarCompra')    
     var btn = document.getElementById('Quantidade1')
+    btn.addEventListener("click", function() {    
+
     var Fvalor = document.querySelector('.Quantidade1')
     var valor = parseInt(Fvalor.textContent);
-
-    b=0
-    btn.addEventListener("click", function() {
     var a= valor
     b++;
+    
     var resultado = a * b
-    console.log(a)
+    console.log(valor)
     console.log(b)
     containerSoma.innerHTML="";
     containerSoma.innerHTML+=`<p>`+resultado+`</p>`;
-    })
-}
-AtualizarPreco();
-AtualizarPreco=()=>{
-    var containerSoma = document.getElementById('FinalizarCompra')
+    });
+  
     var btn = document.getElementById('Quantidade2')
     var Fvalor = document.querySelector('.Quantidade2')
     var valor = parseInt(Fvalor.textContent);
-    b=0
-    btn.addEventListener("click", function() {
     var a= valor
-    console.log(a)
+    console.log(res)
+    btn.addEventListener("click", function() {  
+
     b++;
-    var resultado = a * b
-    console.log(b)
+    var resultado =  a* b
+    console.log(resultado)
     containerSoma.innerHTML="";
     containerSoma.innerHTML+=`<p>`+resultado+`</p>`;
-    })
+    }) ;
 
-    
-}
-AtualizarPreco();
+
+
 
 /*var conteinerSoma = docuemnt.getElementById('FinalizarCompra')
 var btn = document.getElementById('quantidade3')
